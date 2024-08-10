@@ -20,6 +20,7 @@ export function createApp() {
   app.component('ClientOnly', ClientOnly)
 
   const pinia = createPinia()
+
   pinia.use(PiniaDebounce(debounce))
   // hydrate the state on client side
   if (!import.meta.env.SSR) {
