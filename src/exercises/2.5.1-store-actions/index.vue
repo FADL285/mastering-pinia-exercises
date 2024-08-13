@@ -8,9 +8,11 @@ const dango = useDango()
   <h1>Let's eat some Dango 🍡</h1>
 
   <div class="space-x-2">
-    <button data-test="btn-eat" :disabled="dango.amount < 1">Eat!</button>
-    <button data-test="btn-start-eating" :disabled="dango.amount < 1">Start Eating until finished</button>
-    <button data-test="btn-stop-eating">Stop eating</button>
+    <button data-test="btn-eat" :disabled="dango.amount < 1" @click="dango.eatDango">Eat!</button>
+    <button data-test="btn-start-eating" :disabled="dango.amount < 1" @click="dango.startEating">
+      Start Eating until finished
+    </button>
+    <button data-test="btn-stop-eating" @click="dango.stopEating">Stop eating</button>
     <button @click="dango.$reset()">Reset</button>
   </div>
 
