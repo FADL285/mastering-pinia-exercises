@@ -42,8 +42,8 @@ importers:
         specifier: ^2.0.8
         version: 2.0.8
       pinia:
-        specifier: ^2.1.7
-        version: 2.1.7(typescript@5.2.2)(vue@3.4.15(typescript@5.2.2))
+        specifier: ^2.2.2
+        version: 2.2.2(typescript@5.2.2)(vue@3.4.15(typescript@5.2.2))
       ts-debounce:
         specifier: ^4.0.0
         version: 4.0.0
@@ -56,7 +56,7 @@ importers:
     devDependencies:
       '@pinia/testing':
         specifier: ^0.1.3
-        version: 0.1.3(pinia@2.1.7(typescript@5.2.2)(vue@3.4.15(typescript@5.2.2)))(vue@3.4.15(typescript@5.2.2))
+        version: 0.1.3(pinia@2.2.2(typescript@5.2.2)(vue@3.4.15(typescript@5.2.2)))(vue@3.4.15(typescript@5.2.2))
       '@types/compression':
         specifier: ^1.7.3
         version: 1.7.3
@@ -83,7 +83,7 @@ importers:
         version: 6.7.4(eslint@8.50.0)(typescript@5.2.2)
       '@vitejs/plugin-vue':
         specifier: ^4.4.0
-        version: 4.4.0(vite@4.4.9(@types/node@20.8.2))(vue@3.4.15(typescript@5.2.2))
+        version: 4.4.0(vite@4.4.9(@types/node@20.5.9))(vue@3.4.15(typescript@5.2.2))
       '@vitest/ui':
         specifier: ^0.34.3
         version: 0.34.3(vitest@0.34.3)
@@ -170,16 +170,16 @@ importers:
         version: 0.25.2(@babel/parser@7.23.9)(rollup@3.28.1)(vue@3.4.15(typescript@5.2.2))
       unplugin-vue-markdown:
         specifier: ^0.24.3
-        version: 0.24.3(rollup@3.28.1)(vite@4.4.9(@types/node@20.8.2))
+        version: 0.24.3(rollup@3.28.1)(vite@4.4.9(@types/node@20.5.9))
       unplugin-vue-router:
         specifier: ^0.7.0
         version: 0.7.0(rollup@3.28.1)(vue-router@4.2.5(vue@3.4.15(typescript@5.2.2)))(vue@3.4.15(typescript@5.2.2))
       vite:
         specifier: ^4.4.9
-        version: 4.4.9(@types/node@20.8.2)
+        version: 4.4.9(@types/node@20.5.9)
       vite-plugin-md:
         specifier: ^0.21.5
-        version: 0.21.5(@vitejs/plugin-vue@4.4.0(vite@4.4.9(@types/node@20.8.2))(vue@3.4.15(typescript@5.2.2)))(@vitest/ui@0.34.3(vitest@0.34.3))(happy-dom@12.6.0)(vite@4.4.9(@types/node@20.8.2))
+        version: 0.21.5(@vitejs/plugin-vue@4.4.0(vite@4.4.9(@types/node@20.5.9))(vue@3.4.15(typescript@5.2.2)))(@vitest/ui@0.34.3(vitest@0.34.3))(happy-dom@12.6.0)(vite@4.4.9(@types/node@20.5.9))
       vitest:
         specifier: ^0.34.3
         version: 0.34.3(@vitest/ui@0.34.3)(happy-dom@12.6.0)
@@ -719,6 +719,9 @@ packages:
 
   '@vue/devtools-api@6.5.0':
     resolution: {integrity: sha512-o9KfBeaBmCKl10usN4crU53fYtC1r7jJwdGKjPT24t348rHxgfpZ0xL3Xm/gLUYnc0oTp8LAmrxOeLyu6tbk2Q==}
+
+  '@vue/devtools-api@6.6.3':
+    resolution: {integrity: sha512-0MiMsFma/HqA6g3KLKn+AGpL1kgKhFWszC9U29NfpWK5LE7bjeXxySWJrOJ77hBz+TBrBQ7o4QJqbPbqbs8rJw==}
 
   '@vue/language-core@1.8.27':
     resolution: {integrity: sha512-L8Kc27VdQserNaCUNiSFdDl9LWT24ly8Hpwf1ECy3aFb9m6bDhBGQYOujDm21N7EW3moKIOKEanQwe1q5BK+mA==}
@@ -2531,8 +2534,8 @@ packages:
     resolution: {integrity: sha512-C3FsVNH1udSEX48gGX1xfvwTWfsYWj5U+8/uK15BGzIGrKoUpghX8hWZwa/OFnakBiiVNmBvemTJR5mcy7iPcg==}
     engines: {node: '>=4'}
 
-  pinia@2.1.7:
-    resolution: {integrity: sha512-+C2AHFtcFqjPih0zpYuvof37SFxMQ7OEG2zV9jRI12i9BOy3YQVAHwdKtyyc8pDcDyIc33WCIsZaCFWU7WWxGQ==}
+  pinia@2.2.2:
+    resolution: {integrity: sha512-ja2XqFWZC36mupU4z1ZzxeTApV7DOw44cV4dhQ9sGwun+N89v/XP7+j7q6TanS1u1tdbK4r+1BUx7heMaIdagA==}
     peerDependencies:
       '@vue/composition-api': ^1.4.0
       typescript: '>=4.4.4'
@@ -3293,6 +3296,17 @@ packages:
   vue-component-type-helpers@1.8.27:
     resolution: {integrity: sha512-0vOfAtI67UjeO1G6UiX5Kd76CqaQ67wrRZiOe7UAb9Jm6GzlUr/fC7CV90XfwapJRjpCMaZFhv1V0ajWRmE9Dg==}
 
+  vue-demi@0.14.10:
+    resolution: {integrity: sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==}
+    engines: {node: '>=12'}
+    hasBin: true
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0-rc.1
+      vue: ^3.0.0-0 || ^2.6.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+
   vue-demi@0.14.6:
     resolution: {integrity: sha512-8QA7wrYSHKaYgUxDA5ZC24w+eHm3sYCbp0EzcDwKqN3p6HqtTCGR/GVsPyZW92unff4UlcSh++lmqDWN3ZIq4w==}
     engines: {node: '>=12'}
@@ -3678,9 +3692,9 @@ snapshots:
 
   '@pinia/plugin-debounce@1.0.1': {}
 
-  '@pinia/testing@0.1.3(pinia@2.1.7(typescript@5.2.2)(vue@3.4.15(typescript@5.2.2)))(vue@3.4.15(typescript@5.2.2))':
+  '@pinia/testing@0.1.3(pinia@2.2.2(typescript@5.2.2)(vue@3.4.15(typescript@5.2.2)))(vue@3.4.15(typescript@5.2.2))':
     dependencies:
-      pinia: 2.1.7(typescript@5.2.2)(vue@3.4.15(typescript@5.2.2))
+      pinia: 2.2.2(typescript@5.2.2)(vue@3.4.15(typescript@5.2.2))
       vue-demi: 0.14.6(vue@3.4.15(typescript@5.2.2))
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -3907,9 +3921,9 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitejs/plugin-vue@4.4.0(vite@4.4.9(@types/node@20.8.2))(vue@3.4.15(typescript@5.2.2))':
+  '@vitejs/plugin-vue@4.4.0(vite@4.4.9(@types/node@20.5.9))(vue@3.4.15(typescript@5.2.2))':
     dependencies:
-      vite: 4.4.9(@types/node@20.8.2)
+      vite: 4.4.9(@types/node@20.5.9)
       vue: 3.4.15(typescript@5.2.2)
 
   '@vitest/expect@0.34.3':
@@ -4018,6 +4032,8 @@ snapshots:
 
   '@vue/devtools-api@6.5.0': {}
 
+  '@vue/devtools-api@6.6.3': {}
+
   '@vue/language-core@1.8.27(typescript@5.2.2)':
     dependencies:
       '@volar/language-core': 1.11.1
@@ -4104,14 +4120,14 @@ snapshots:
 
   '@xmldom/xmldom@0.8.10': {}
 
-  '@yankeeinlondon/builder-api@1.4.1(@vitejs/plugin-vue@4.4.0(vite@4.4.9(@types/node@20.8.2))(vue@3.4.15(typescript@5.2.2)))(@vitest/ui@0.34.3(vitest@0.34.3))(happy-dom@12.6.0)(vite@4.4.9(@types/node@20.8.2))':
+  '@yankeeinlondon/builder-api@1.4.1(@vitejs/plugin-vue@4.4.0(vite@4.4.9(@types/node@20.5.9))(vue@3.4.15(typescript@5.2.2)))(@vitest/ui@0.34.3(vitest@0.34.3))(happy-dom@12.6.0)(vite@4.4.9(@types/node@20.5.9))':
     dependencies:
       '@types/markdown-it': 12.2.3
       '@yankeeinlondon/happy-wrapper': 2.10.1(@vitest/ui@0.34.3(vitest@0.34.3))
       fp-ts: 2.16.1
       inferred-types: 0.37.6(@vitest/ui@0.34.3(vitest@0.34.3))(happy-dom@12.6.0)
       markdown-it: 13.0.1
-      vite-plugin-md: 0.22.5(@vitejs/plugin-vue@4.4.0(vite@4.4.9(@types/node@20.8.2))(vue@3.4.15(typescript@5.2.2)))(@vitest/ui@0.34.3(vitest@0.34.3))(happy-dom@12.6.0)(vite@4.4.9(@types/node@20.8.2))
+      vite-plugin-md: 0.22.5(@vitejs/plugin-vue@4.4.0(vite@4.4.9(@types/node@20.5.9))(vue@3.4.15(typescript@5.2.2)))(@vitest/ui@0.34.3(vitest@0.34.3))(happy-dom@12.6.0)(vite@4.4.9(@types/node@20.5.9))
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitejs/plugin-vue'
@@ -4131,7 +4147,7 @@ snapshots:
 
   '@yankeeinlondon/gray-matter@6.1.1(@vitest/ui@0.34.3(vitest@0.34.3))(happy-dom@12.6.0)':
     dependencies:
-      inferred-types: 0.37.6(@vitest/ui@0.34.3(vitest@0.34.3))(happy-dom@12.6.0)
+      inferred-types: 0.37.6
       js-yaml: 4.1.0
       kind-of: 6.0.3
       section-matter: 1.0.0
@@ -5448,6 +5464,10 @@ snapshots:
 
   imurmurhash@0.1.4: {}
 
+  inferred-types@0.37.6:
+    dependencies:
+      brilliant-errors: 0.7.3(@vitest/ui@0.34.3(vitest@0.34.3))(happy-dom@12.6.0)
+
   inferred-types@0.37.6(@vitest/ui@0.34.3(vitest@0.34.3))(happy-dom@12.6.0):
     dependencies:
       brilliant-errors: 0.7.3(@vitest/ui@0.34.3(vitest@0.34.3))(happy-dom@12.6.0)
@@ -6184,11 +6204,11 @@ snapshots:
 
   pify@3.0.0: {}
 
-  pinia@2.1.7(typescript@5.2.2)(vue@3.4.15(typescript@5.2.2)):
+  pinia@2.2.2(typescript@5.2.2)(vue@3.4.15(typescript@5.2.2)):
     dependencies:
-      '@vue/devtools-api': 6.5.0
+      '@vue/devtools-api': 6.6.3
       vue: 3.4.15(typescript@5.2.2)
-      vue-demi: 0.14.6(vue@3.4.15(typescript@5.2.2))
+      vue-demi: 0.14.10(vue@3.4.15(typescript@5.2.2))
     optionalDependencies:
       typescript: 5.2.2
 
@@ -6826,7 +6846,7 @@ snapshots:
       - rollup
       - supports-color
 
-  unplugin-vue-markdown@0.24.3(rollup@3.28.1)(vite@4.4.9(@types/node@20.8.2)):
+  unplugin-vue-markdown@0.24.3(rollup@3.28.1)(vite@4.4.9(@types/node@20.5.9)):
     dependencies:
       '@mdit-vue/plugin-component': 0.12.1
       '@mdit-vue/plugin-frontmatter': 0.12.1
@@ -6835,7 +6855,7 @@ snapshots:
       '@types/markdown-it': 13.0.1
       markdown-it: 13.0.1
       unplugin: 1.4.0
-      vite: 4.4.9(@types/node@20.8.2)
+      vite: 4.4.9(@types/node@20.5.9)
     transitivePeerDependencies:
       - rollup
 
@@ -6939,14 +6959,14 @@ snapshots:
       - supports-color
       - terser
 
-  vite-plugin-md@0.21.5(@vitejs/plugin-vue@4.4.0(vite@4.4.9(@types/node@20.8.2))(vue@3.4.15(typescript@5.2.2)))(@vitest/ui@0.34.3(vitest@0.34.3))(happy-dom@12.6.0)(vite@4.4.9(@types/node@20.8.2)):
+  vite-plugin-md@0.21.5(@vitejs/plugin-vue@4.4.0(vite@4.4.9(@types/node@20.5.9))(vue@3.4.15(typescript@5.2.2)))(@vitest/ui@0.34.3(vitest@0.34.3))(happy-dom@12.6.0)(vite@4.4.9(@types/node@20.5.9)):
     dependencies:
-      '@yankeeinlondon/builder-api': 1.4.1(@vitejs/plugin-vue@4.4.0(vite@4.4.9(@types/node@20.8.2))(vue@3.4.15(typescript@5.2.2)))(@vitest/ui@0.34.3(vitest@0.34.3))(happy-dom@12.6.0)(vite@4.4.9(@types/node@20.8.2))
+      '@yankeeinlondon/builder-api': 1.4.1(@vitejs/plugin-vue@4.4.0(vite@4.4.9(@types/node@20.5.9))(vue@3.4.15(typescript@5.2.2)))(@vitest/ui@0.34.3(vitest@0.34.3))(happy-dom@12.6.0)(vite@4.4.9(@types/node@20.5.9))
       '@yankeeinlondon/gray-matter': 6.1.1(@vitest/ui@0.34.3(vitest@0.34.3))(happy-dom@12.6.0)
       '@yankeeinlondon/happy-wrapper': 2.10.1(@vitest/ui@0.34.3(vitest@0.34.3))
       markdown-it: 13.0.1
       source-map-js: 1.0.2
-      vite: 4.4.9(@types/node@20.8.2)
+      vite: 4.4.9(@types/node@20.5.9)
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitejs/plugin-vue'
@@ -6963,15 +6983,15 @@ snapshots:
       - supports-color
       - terser
 
-  vite-plugin-md@0.22.5(@vitejs/plugin-vue@4.4.0(vite@4.4.9(@types/node@20.8.2))(vue@3.4.15(typescript@5.2.2)))(@vitest/ui@0.34.3(vitest@0.34.3))(happy-dom@12.6.0)(vite@4.4.9(@types/node@20.8.2)):
+  vite-plugin-md@0.22.5(@vitejs/plugin-vue@4.4.0(vite@4.4.9(@types/node@20.5.9))(vue@3.4.15(typescript@5.2.2)))(@vitest/ui@0.34.3(vitest@0.34.3))(happy-dom@12.6.0)(vite@4.4.9(@types/node@20.5.9)):
     dependencies:
-      '@vitejs/plugin-vue': 4.4.0(vite@4.4.9(@types/node@20.8.2))(vue@3.4.15(typescript@5.2.2))
-      '@yankeeinlondon/builder-api': 1.4.1(@vitejs/plugin-vue@4.4.0(vite@4.4.9(@types/node@20.8.2))(vue@3.4.15(typescript@5.2.2)))(@vitest/ui@0.34.3(vitest@0.34.3))(happy-dom@12.6.0)(vite@4.4.9(@types/node@20.8.2))
+      '@vitejs/plugin-vue': 4.4.0(vite@4.4.9(@types/node@20.5.9))(vue@3.4.15(typescript@5.2.2))
+      '@yankeeinlondon/builder-api': 1.4.1(@vitejs/plugin-vue@4.4.0(vite@4.4.9(@types/node@20.5.9))(vue@3.4.15(typescript@5.2.2)))(@vitest/ui@0.34.3(vitest@0.34.3))(happy-dom@12.6.0)(vite@4.4.9(@types/node@20.5.9))
       '@yankeeinlondon/gray-matter': 6.1.1(@vitest/ui@0.34.3(vitest@0.34.3))(happy-dom@12.6.0)
       '@yankeeinlondon/happy-wrapper': 2.10.1(@vitest/ui@0.34.3(vitest@0.34.3))
       markdown-it: 13.0.1
       source-map-js: 1.0.2
-      vite: 4.4.9(@types/node@20.8.2)
+      vite: 4.4.9(@types/node@20.5.9)
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitest/browser'
@@ -7100,6 +7120,10 @@ snapshots:
       - terser
 
   vue-component-type-helpers@1.8.27: {}
+
+  vue-demi@0.14.10(vue@3.4.15(typescript@5.2.2)):
+    dependencies:
+      vue: 3.4.15(typescript@5.2.2)
 
   vue-demi@0.14.6(vue@3.4.15(typescript@5.2.2)):
     dependencies:
