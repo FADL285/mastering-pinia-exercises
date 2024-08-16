@@ -1,26 +1,26 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 // // == NOTO: The setup store didn't pass all test cases...
 // import { computed, ref } from 'vue'
-// export const useDango = defineStore('2.5.1 store-actions', () => {
+// export const useDango = defineStore('2.5.1 store-actions', ({ action }) => {
 //   const amount = ref(20)
 //   const eatenBalls = ref(0)
 //   const isEating = ref(false)
 
 //   const finishedSticks = computed(() => Math.floor(eatenBalls.value / 3))
 
-//   function eatDango() {
+//   const eatDango = action(() => {
 //     if (amount.value <= 0) return
 //     eatenBalls.value++
 //     if (eatenBalls.value % 3 === 0) amount.value--
-//   }
+//   })
 
-//   async function startEating(interval = 500) {
+//   async function startEating() {
 //     if (isEating.value || amount.value <= 0) return
 
 //     isEating.value = true
 
 //     while (amount.value > 0) {
-//       await new Promise(resolve => setTimeout(resolve, interval))
+//       await new Promise(resolve => setTimeout(resolve, 300))
 
 //       if (!isEating.value) return
 
@@ -73,15 +73,15 @@ export const useDango = defineStore('2.5.1 store-actions', {
       }
     },
 
-    async startEating(interval = 500) {
+    async startEating() {
       if (this.isEating || this.amount < 1) return
 
       this.isEating = true
       while (this.amount > 0) {
-        await new Promise(resolve => setTimeout(resolve, interval))
+        await new Promise(resolve => setTimeout(resolve, 300))
         if (!this.isEating) return
         this.eatDango()
-      } 
+      }
 
       this.isEating = false
     },
