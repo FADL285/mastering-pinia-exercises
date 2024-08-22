@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, ref, toRef, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { useTodosStore } from '../../stores/todos'
 import { storeToRefs } from 'pinia'
 import { useTimeAgo } from '@vueuse/core'
@@ -17,12 +17,8 @@ function addTodo() {
 }
 
 const lastAdded = useTimeAgo(
-  computed(
-    () =>
-      toRef(todos, 'mostRecent').value?.createdAt ||
-      // this is just to avoid an undefined value
-      Date.now(),
-  ),
+  () => todos.mostRecent?.createdAt || Date.now(),
+
   {
     showSecond: true,
     rounding: 'floor',
@@ -32,11 +28,11 @@ const lastAdded = useTimeAgo(
 
 const todoListChanges = ref(0)
 watch(
-  todos,
+  () => todos.list,
   () => {
     todoListChanges.value++
   },
-  { deep: false },
+  { deep: true },
 )
 </script>
 
