@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue'
 import { type TodoItem } from '@/api/todos'
 import { formatTime } from '@/utils'
-import { useTodosStore } from '../stores/todos'
+import { useTasksStore } from '../stores/tasks';
 
 const props = defineProps<{
   todo: TodoItem
@@ -24,10 +24,10 @@ function saveTodo() {
   todoCopy.value = null
 }
 
-const todos = useTodosStore()
+const tasks = useTasksStore()
 
-const isTaskStarted = computed(() => todos.isTodoStarted(props.todo.id))
-const finishedTask = computed(() => todos.finishedTasks.find(t => t.todoId === props.todo.id))
+const isTaskStarted = computed(() => tasks.isTodoStarted(props.todo.id))
+const finishedTask = computed(() => tasks.finishedTasks.find(t => t.todoId === props.todo.id))
 </script>
 
 <template>
@@ -41,18 +41,18 @@ const finishedTask = computed(() => todos.finishedTasks.find(t => t.todoId === p
       <span data-test="todo-text" :class="{ 'line-through': todo.finished, 'text-gray': todo.finished }">{{
         todo.text
       }}</span>
-      <template v-if="todos.activeTask?.todoId === todo.id">
-        <button data-test="todo-btn-pause" @click="todos.pauseCurrentTodo()">Pause Task</button>
-        <button data-test="todo-btn-finish" @click="todos.finishCurrentTodo()">Finish Task</button>
+      <template v-if="tasks.activeTask?.todoId === todo.id">
+        <button data-test="todo-btn-pause" @click="tasks.pauseCurrentTodo()">Pause Task</button>
+        <button data-test="todo-btn-finish" @click="tasks.finishCurrentTodo()">Finish Task</button>
       </template>
       <template v-else>
         <template v-if="!finishedTask">
           <button data-test="todo-btn-start-edit" @click="startEdit">Edit</button>
           <button v-if="!isTaskStarted" data-test="todo-btn-delete" @click="emit('delete', todo)">Delete</button>
-          <button v-if="isTaskStarted" data-test="todo-btn-resume-todo" @click="todos.startTodo(todo.id)">
+          <button v-if="isTaskStarted" data-test="todo-btn-resume-todo" @click="tasks.startTodo(todo.id)">
             Resume Task
           </button>
-          <button v-else data-test="todo-btn-start-todo" @click="todos.startTodo(todo.id)">Start Task</button>
+          <button v-else data-test="todo-btn-start-todo" @click="tasks.startTodo(todo.id)">Start Task</button>
         </template>
         <span v-else-if="finishedTask.end"
           ><i data-test="todo-finished-info"

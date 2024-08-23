@@ -3,8 +3,10 @@ import { ref } from 'vue'
 import TodoItem from './components/TodoItem.vue'
 import TaskActive from './components/TaskActive.vue'
 import { useTodosStore } from './stores/todos'
+import { useTasksStore } from './stores/tasks';
 
 const todos = useTodosStore()
+const tasks = useTasksStore()
 
 const todoText = ref('')
 function addTodo() {
@@ -24,7 +26,7 @@ function addTodo() {
     <section>
       <h3>Current Task</h3>
 
-      <TaskActive v-if="todos.activeTask" :task="todos.activeTask" />
+      <TaskActive v-if="tasks.activeTaskWithTodo" :task="tasks.activeTaskWithTodo" />
     </section>
 
     <form class="space-x-2" data-test="add-todo" @submit.prevent="addTodo()">
