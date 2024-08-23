@@ -14,6 +14,7 @@ export const usePrivateCounter = definePrivateState(
   privateState => {
     const double = computed(() => privateState.n * 2)
 
+
     function increment(amount = 1) {
       privateState.n += amount
     }

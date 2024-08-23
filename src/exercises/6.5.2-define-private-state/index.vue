@@ -23,6 +23,8 @@ const openFile = useOpenFile()
     <button @click="privateCounter.increment(10)">Increment by 10</button>
   </div>
 
+  <p>Store ID: {{ privateCounter.$id }}</p>
+
   <p>Double: {{ privateCounter.double }}</p>
 
   <p>Counter store state (should be empty):</p>
