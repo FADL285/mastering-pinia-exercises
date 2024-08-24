@@ -21,11 +21,11 @@ export const usePrivateStore = definePrivateStore(
     return { n, double, increment }
   },
 
-  priv => {
-    const doublePlusOne = computed(() => priv.double + 1)
+  privateStore  => {
+    const doublePlusOne = computed(() => privateStore .double + 1)
 
     function decrement(amount = 1) {
-      priv.increment(-amount)
+      privateStore .increment(-amount)
     }
 
     return { doublePlusOne, decrement }
