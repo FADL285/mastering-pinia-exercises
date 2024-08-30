@@ -1,4 +1,3 @@
-import { useEventListener } from '@vueuse/core'
 import { type ComputedRef, computed, onMounted, onServerPrefetch, toValue, MaybeRefOrGetter, watch } from 'vue'
 import { useDataFetchingStore } from './data-fetching-store'
 
@@ -59,14 +58,31 @@ export type UseQueryOptionsWithDefaults<TResult> = typeof USE_QUERY_DEFAULTS & U
 
 export function useQuery<TResult, TError = Error>(_options: UseQueryOptions<TResult>): UseQueryReturn<TResult, TError> {
   const store = useDataFetchingStore()
+  const options = {
+    ...USE_QUERY_DEFAULTS,
+    ..._options,
+  } satisfies UseQueryOptionsWithDefaults<TResult>
 
-  // TODO: implement
+  const entry = computed(() => store.ensureEntry<TResult, TError>(toValue(options.key), options))
+
+  onServerPrefetch(async () => 
+    await entry.value.refresh().catch(() => {})
+  )
+
+  onMounted(() => {
+    entry.value.refetch().catch(() => {})
+
+    watch(entry, entry => {
+      entry.refresh().catch(() => {})
+    })
+  })
+
   return {
-    data: computed(() => undefined),
-    error: computed(() => null),
-    isFetching: computed(() => false),
-    refetch: () => Promise.resolve({} as TResult),
-    refresh: () => Promise.resolve({} as TResult),
+    data: computed(() => entry.value.data()),
+    error: computed(() => entry.value.error()),
+    isFetching: computed(() => entry.value.isFetching()),
+    refetch: () => entry.value.refetch(),
+    refresh: () => entry.value.refresh(),
   }
 }
 

@@ -76,7 +76,62 @@ export const useDataFetchingStore = defineStore('6.8-data-fetching', () => {
     key: string,
     { query, initialValue, cacheTime }: UseQueryOptionsWithDefaults<TResult>,
   ): UseDataFetchingQueryEntry<TResult, TError> {
-    // TODO: implement the code so we can do
+    let when = Date.now()
+
+    if (!dataRegistry.has(key)) {
+      dataRegistry.set(key, initialValue?.())
+      errorRegistry.set(key, null)
+      isFetchingRegistry.set(key, false)
+      when = 0
+    }
+
+    if (!queryEntriesRegistry.has(key)) {
+      const entry: UseDataFetchingQueryEntry<TResult, TError> = {
+        data: () => dataRegistry.get(key)! as TResult,
+        error: () => errorRegistry.get(key),
+        isFetching: () => isFetchingRegistry.get(key)!,
+        pending: null,
+        when,
+
+        async refresh() {
+          if (isExpired(entry.when, cacheTime)) {
+            await entry.refetch()
+          }
+
+          return entry.data()!
+        },
+        async refetch() {
+          if (entry.pending) {
+            // return the existing promise
+            return entry.pending.refreshCall
+          }
+
+          isFetchingRegistry.set(key, true)
+          entry.pending = {
+            when: Date.now(),
+            refreshCall: query()
+              .then(data => {
+                dataRegistry.set(key, data)
+                errorRegistry.set(key, null)
+                return data
+              })
+              .catch(error => {
+                errorRegistry.set(key, error)
+                throw error
+              })
+              .finally(() => {
+                isFetchingRegistry.set(key, false)
+                entry.pending = null
+                entry.when = Date.now()
+              }),
+          }
+
+          return entry.pending.refreshCall
+        },
+      }
+
+      queryEntriesRegistry.set(key, entry)
+    }
 
     const entry = queryEntriesRegistry.get(key)!
 

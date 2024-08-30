@@ -53,7 +53,7 @@ watchDebounced(
     <div class="contacts-search">
       <div>
         <form class="space-x-2" @submit.prevent>
-          <input v-model="searchText" autofocus type="search" placeholder="Eduardo" />
+          <input v-model="searchText" autofocus type="search" placeholder="Fadl" />
           <!-- NOTE: ensure no fetch is done on client while hydrating or this will cause
            a Hydration mismatch -->
           <div v-if="isFetching"><span class="spinner"></span><span> Fetching</span></div>
