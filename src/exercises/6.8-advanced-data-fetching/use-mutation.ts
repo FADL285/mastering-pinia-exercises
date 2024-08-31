@@ -30,21 +30,57 @@ export interface UseMutationReturn<
   mutate: (...params: TParams) => Promise<TResult>
 }
 
-export function useMutation<TResult, TParams extends readonly unknown[], TError = Error>(
-  options: UseMutationsOptions<TResult, TParams>,
-): UseMutationReturn<TResult, TParams, TError> {
+export function useMutation<TResult, TParams extends readonly unknown[], TError = Error>({
+  mutation,
+  keys,
+}: UseMutationsOptions<TResult, TParams>): UseMutationReturn<TResult, TParams, TError> {
   const store = useDataFetchingStore()
 
+  const data = shallowRef<TResult | undefined>(undefined)
+  const error = shallowRef<TError | null>(null)
+  const isFetching = ref(false)
+
+  let pendingPromise: Promise<TResult> | null = null
   function mutate(...args: TParams) {
-    // TODO: implement
-    return Promise.resolve({} as TResult)
+    isFetching.value = true
+
+    const promise = (pendingPromise = mutation(...args)
+      .then(result => {
+        if (promise === pendingPromise) {
+          data.value = result
+          error.value = null
+
+          if (keys) {
+            keys.forEach(key => {
+              const keyString = typeof key === 'function' ? key({ variables: args, result }) : key
+              store.invalidateEntry(keyString, true)
+            })
+          }
+        }
+
+        return result
+      })
+      .catch(err => {
+        if (promise === pendingPromise) {
+          error.value = err
+        }
+
+        throw err
+      })
+      .finally(() => {
+        if (promise === pendingPromise) {
+          isFetching.value = false
+        }
+      }))
+
+    return promise
   }
 
   // TODO: implement
   return {
-    data: computed(() => undefined),
-    isFetching: computed(() => false),
-    error: computed(() => null),
+    data: computed(() => data.value),
+    isFetching: computed(() => isFetching.value),
+    error: computed(() => error.value),
     mutate,
   }
 }
