@@ -8,7 +8,6 @@ dist-ssr
 .eslintcache
 *.local
 .env
-.env.production
 pnpm-debug.log
 # This is usually tracked but it's easier for the project to be this way
 typed-router.d.ts
